@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from settings import *
 
 def handle_button_click(clicked_button_text):
     current_text = result_var.get()
@@ -37,14 +38,12 @@ def handle_button_click(clicked_button_text):
         result_var.set(current_text + clicked_button_text)
 
 # Create the main window
-
 root = tk.Tk()
 root.title("Calculator")
 
 # Entry widget to display the result with larger font size
-
 result_var = tk.StringVar()
-result_entry = ttk.Entry(root, textvariable=result_var, font=("Xenara", 32), justify="right")
+result_entry = ttk.Entry(root, textvariable=result_var, font=("Helvetica", 30), justify="right")
 result_entry.grid(row=0, column=0, columnspan=4, sticky="nsew")
 
 # Button layout
@@ -58,8 +57,8 @@ buttons = [
 
 # Configure style for theme
 style = ttk.Style()
-style.theme_use('black')
-style.configure("TButton", font=("Xenara", 20), width=10, height=4)
+style.theme_use('default')
+style.configure("TButton", font=("Helvetica", 28), width=12, height=4)
 
 # Create buttons and add them to the grid
 for button_info in buttons:
@@ -69,21 +68,19 @@ for button_info in buttons:
     button.grid(row=row, column=col, columnspan=colspan, sticky="nsew", ipadx=10, ipady=4, padx=5, pady=5)
 
 # Configure row and column weights so that they expand proportionally
-for i in range(6):
+for i in range(number_of_rows):
     root.grid_rowconfigure(i, weight=1)
 
-for i in range(4):
+for i in range(number_of_columns):
     root.grid_columnconfigure(i, weight=1)
 
-# Set the window size to a 9:16 ratio
-
-width = 640
-height = 780
+# Set the window size
 root.geometry(f"{width}x{height}")
+
+# Make the background of the button frame black
 root.configure(background="black")
 
 # Make the window non-resizable
-
 root.resizable(False, False)
 
 # Keyboard control
