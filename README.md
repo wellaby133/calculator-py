@@ -1,5 +1,5 @@
 # calculator-py
-Calculator GUI Application made in Pthyon with the help of the Tkinter Library :
+Calculator GUI Application made in Python with the help of the Tkinter Library :
 
 Basic mathematical functions implemented.
 Responsive GUI to the change in resolution of the window frame.
